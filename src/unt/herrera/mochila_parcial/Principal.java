@@ -103,7 +103,7 @@ public class Principal
         
         
         
-        //Implementamos funciones como usuario del ADT.
+        //Implementamos funciones como usuario del ADT.     //CUANDO DESCOMENTO ESTO SE ARRUINA.
 //        System.out.println("");
 //        System.out.println(":::::::::::: COMO USUARIO :::::::::: ");
 //        System.out.println("Agregamos objetos a la mochila");
@@ -139,7 +139,7 @@ public class Principal
             return coincidencias;
         }
     
-//    public static boolean sonIguales(Mochila moc1, Mochila moc2)        //Chequear metodo
+//    public static boolean sonIguales(Mochila moc1, Mochila moc2)        //Chequear ERRORES. HACER MOCHILA LO VOID?
 //    {
 //        if(moc1.cantidad() == moc2.cantidad())
 //        {
@@ -147,12 +147,17 @@ public class Principal
 //                return true;
 //            if(moc1.esVacia() || moc2.esVacia())
 //                return false;
-//            if(moc1.pertenece(moc2.verUltimo()))
-//            {
+//            
+//              if(moc1.pertenece(moc2.verUltimo()))
+//              {
 //                moc2.borrarFinal();
 //                return sonIguales(moc1.borrarFinal(), moc2);
-//            }
-//        }
-//            
+//              }
+//              else
+//                    return false;
+//         }
+//           else
+//                return false;
 //    }
+//            
 }
