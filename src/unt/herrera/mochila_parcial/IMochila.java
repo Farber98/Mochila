@@ -21,12 +21,16 @@ public interface IMochila
     
     public void borrarInicio();
     
-    public int verUltimo();
+    public Objeto verUltimo();
     
-    public int verPrimero();
+    public Objeto verPrimero();
     
     public int cantidad();
     
     public void verMochila();
+    
+    public boolean pertenece(Objeto unObjeto);
+    
+    public Mochila juntarMochilas(Mochila unaMochila, Mochila otraMochila);
     
 }

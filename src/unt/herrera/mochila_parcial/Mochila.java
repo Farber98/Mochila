@@ -12,7 +12,7 @@ package unt.herrera.mochila_parcial;
 public class Mochila implements IMochila
 {
     private Objeto inicio;
-    private int cantidad;
+    private int cantidad = 0;
 
     public Mochila() 
     {
@@ -73,7 +73,7 @@ public class Mochila implements IMochila
             Objeto auxiliar = this.inicio;
             while(auxiliar.getSiguiente().getSiguiente() != null)
             {
-             auxiliar = auxiliar.getSiguiente();
+                 auxiliar = auxiliar.getSiguiente();
             }
             auxiliar.setSiguiente(null);
             cantidad--;
@@ -97,12 +97,12 @@ public class Mochila implements IMochila
     }
 
     @Override
-    public int verUltimo() 
+    public Objeto verUltimo() 
     {
         if(esVacia())
         {
             System.out.println("No hay ningun objeto en la mochila");
-            return 0;
+            return null;
         }
         else
         {
@@ -111,22 +111,22 @@ public class Mochila implements IMochila
             {
                 auxiliar = auxiliar.getSiguiente();
             }
-            return auxiliar.getDato();
+            return auxiliar;
         }
     }
 
     @Override
-    public int verPrimero() 
+    public Objeto verPrimero() 
     {
         if(esVacia())
         {
             System.out.println("Lista vacia, no se puede mostrar \n");
-            return 0;
+            return null;
         }
         else
         {
             Objeto auxiliar = this.inicio;
-            return auxiliar.getDato();
+            return auxiliar;
         }
     }
     
@@ -146,5 +146,42 @@ public class Mochila implements IMochila
             System.out.println("");
         }
     }
-   
+    
+    @Override
+    public boolean pertenece(Objeto unObjeto)
+    {
+        if(esVacia())
+            return false;
+        else
+        {
+            Objeto auxiliar = this.inicio;
+            while(auxiliar.getSiguiente() != null)
+            {
+                if(auxiliar.getDato() == unObjeto.getDato())
+                {
+                    return true;
+                }
+                auxiliar = auxiliar.getSiguiente();
+            }
+        }
+        
+        return false;
+    }
+
+    @Override
+    public Mochila juntarMochilas(Mochila unaMochila, Mochila otraMochila) 
+    {
+        Objeto auxiliar = unaMochila.inicio;
+        while(auxiliar.getSiguiente() != null)
+        {
+            auxiliar = auxiliar.getSiguiente();
+        }
+        auxiliar.setSiguiente(otraMochila.inicio);
+        return unaMochila;
+    }
+    
+    
+    
+    
 }
+   
